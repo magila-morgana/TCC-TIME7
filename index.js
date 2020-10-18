@@ -1,8 +1,7 @@
 // importar o express, body-parser, handlebars e sequelize
 const express = require('express')
 const Handlebars = require('handlebars');
-const expressHandlebars = require('express-handlebars');
-const {alowInsecurePrototypeAccess, allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
+const expressHandlebars = require('express-handlebars'), {alowInsecurePrototypeAccess, allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const bodyParser = require('body-parser')
 const Calendario = require('./models/Calendario')
 const Evento = require('./models/Evento')
@@ -13,9 +12,9 @@ const app = express();
 
 // Template handlebars
 app.engine('handlebars', expressHandlebars({
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
 }));
-app.set('view engine', 'handlebars');
+app.set('view engine', 'handlebars')
 app.use(express.static('public')) 
 
 // configurar o bodyParser
@@ -122,7 +121,7 @@ app.post('/selecao', (req,res) =>
 }) 
 
 // ouvir uma porta
-app.listen(3000)
+app.listen(8080)
 
 // **************************** Configurando o GitHub
 
@@ -133,4 +132,4 @@ app.listen(3000)
 
 // git add . 
 // git commit -m "Criação do formulário de imagem" 
-// git push origin master 
+// git push origin main 
