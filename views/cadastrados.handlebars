@@ -1,0 +1,57 @@
+{{body}}
+
+<div class="container">
+  <br>
+  <a href="/adm"><button>VOLTAR</button></a>
+  <a href="/cadastrar"><button>CADASTRAR</button></a>
+  <hr>
+
+  <!-- Form -->
+  <div class="card border mb-3 shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Form Header -->
+    <div class="card-header text-center">
+      <h7>Lista de calendários cadastrados - ETEC</h7>
+    </div>
+    <div class="row">
+
+      <!-- Col_1 -->
+      <div class="card-body text-dark col-lg-4 col-md-4 col-sm-12">
+        <img class="col-5 img-calendar" id="calendar" src="./img/iconCalendar.png" alt="camera">
+      </div>
+
+      <!-- Col_2 -->
+      <div class="container col-lg-6 col-md-6 col-sm-10">
+        <div class="card-body text-dark">
+          <div class="row">
+            <table class="table table table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">ANO</th>
+                  <th scope="col">SEMESTRE</th>
+                  <th scope="col">EDITAR</th>
+                  <th scope="col">EXCLUIR</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each calendarios}}
+                <tr>
+                  <td>{{ano}}{{id}}</td>
+                  <td>{{ano}}</td>
+                  <td>{{semestre}}</td>
+                  <td><a href="/edit/{{id}}"><button>EDITAR</button></a></td>
+                  <td><a href="/del/{{id}}"><button>DELETAR</button></a></td>
+                </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div> <!-- Fim do Container formulário -->  
+    </div>
+  </div>
+</div>
+
+
+

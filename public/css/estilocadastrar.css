@@ -1,0 +1,78 @@
+/*************************************** CSS formulario_imagem ***************************************/ 
+img.icon {
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 20px;
+  max-width: 20px;
+}
+
+span.font-title {
+  font-family: 'French Script MT';
+  font-size: 40px;
+}
+
+@media screen and (max-width: 600px) {
+  div.ml {
+    margin-left: 10px;
+  }
+}
+
+/* Form Header */
+.card-header {
+  color: white;
+  background-image: linear-gradient(to top, #000030, #307090);
+  font-size: 30px;
+  font-family: 'Geneva';  
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.img {
+  margin-top: auto;
+  margin-bottom: auto;
+  max-height: 30px;
+  max-width: 30px;
+}
+
+/* Form Col_1 */
+img.img-calendar {
+  margin: auto;
+  max-height: 30rem;
+  max-width: auto;
+  justify-content: center; 
+}
+
+#calendar {
+    margin-top: 30px;
+} 
+
+/* Form Col_2 */
+button.botton {
+  width: 100px;
+}
+
+button.clean {
+  background-color: #900000;
+  color: #ffffff;
+}
+
+button.clean:hover {
+  background-color: #600000;
+  color: #ffecec;
+}
+
+button.save {
+  background-color: #dd0000;
+  color: #ffffff;
+}
+
+button.save:hover {
+  background-color: #aa0000;
+  color: #ffecec;
+}
+
+input.form-control {
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+}

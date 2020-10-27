@@ -1,19 +1,19 @@
 {{body}}
 
-    <h2 class="tituloP">Lista de LOGINS: </h2>
-    <br>
-    <a href="/"><button>VOLTAR</button></a>
-    <hr>
+<h2 class="tituloP">Lista de LOGINS: </h2>
+<br>
+<a href="/"><button>VOLTAR</button></a>
+<hr>
 
-    {{#each logins}}
-        <h3>RM: {{RM}}</h3>
-        <p>Senha: {{senha}}</p>
-        
-        <a href="/del/{{id}}"><button>DELETAR</button></a>
-        <br><br>
-        
-        <hr>
-    {{/each}}
-    <br>
-    <a href="/selecao"><button>CADASTRAR</button></a>
-    <hr>
+{{#each logins}}
+<h3>RM: {{RM}}</h3>
+<p>Senha: {{senha}}</p>
+
+<a href="/del/{{id}}"><button>DELETAR</button></a>
+<br><br>
+
+<hr>
+{{/each}}
+<br>
+<a href="/selecao"><button>CADASTRAR</button></a>
+<hr>

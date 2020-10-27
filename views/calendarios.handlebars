@@ -1,0 +1,20 @@
+{{body}}
+
+<h2 class="tituloP">Lista de CALENDÁRIOS: </h2>
+<br>
+<a href="/cadastrados"><button>VOLTAR</button></a>
+<hr>
+
+{{#each calendarios}}
+<p>ID: {{id}}</p>
+<p>ANO: {{ano}}</p>
+<p>SEMESTRE: {{semestre}}</p>
+
+<a href="/delet/{{id}}"><button>DELETAR</button></a>
+<br><br>
+
+<hr>
+{{/each}}
+<br>
+<a href="/cadastrar"><button>CADASTRAR</button></a>
+<hr>

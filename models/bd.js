@@ -13,13 +13,11 @@ sequelize.authenticate().then(function()
 }).catch(function(erro)
 {
     console.log("Falha ao se conectar: " +erro)
-})  
-
-*/
+}) */  
 
 // Exportando o SEQUELIZE
 module.exports = {
     Sequelize: Sequelize,
     sequelize: sequelize
-}
+} 
 

@@ -1,53 +1,48 @@
 {{body}}
 
-    <!-- Container Principal -->   
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-sm-12">
+<div class="container">
+  <br>
+  <a href="/"><button>VOLTAR</button></a>
+  <hr>
+</div>
 
-                <!-- Container Título -->     
-                <div class="container nomeApp">
-                    <h5>Calendário Escolar ETEC - 2020</h5>
-                </div>
-                
-                <!-- Container Imagem -->   
-                <div class="container imgLogin">
-                    <div class="container4 borderLogin">
-                        <img class="imgUser" src="./img/user.png" alt="imagem do usuário"><img>
-                    </div>
-                </div>
+<!-- Container Principal -->
+<div class="container text-center">
+  <div class="row">
+    <div class="col-sm-12">
 
-                <!-- Container Formulário -->   
-                <div class="container form">
-                    <form action="/cadastro" method="POST">
-                        <div class="form-group row" aling="text-center">
-                            <div class="col-sm-12">
-                                <input type="integer" name="RM" class="form-control text-center" id="inputPassword3" placeholder="RM">
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-sm-12">
-                                    <input type="password" name="senha" class="form-control text-center" id="inputPassword3" placeholder="Senha">
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-12">
-                                <button type="submit" class="btn btn-logar">Logar</button>
-                            </div>
-                        
-                        </div>
-                    </form>
-                    
-                <!-- Fim do Container formulário -->    
-                </div>
-            
-            <!-- Fim da Coluna 'col' -->
-            </div>
+      <!-- Container Título -->
+      <div class="container nomeApp">
+        <h5>Calendário Escolar ETEC - 2020</h5>
+      </div>
 
-        <!-- Fim da Linha 'row' -->          
+      <!-- Container Imagem -->
+      <div class="container imgLogin">
+        <div class="container4 borderLogin">
+          <img class="imgUser" src="./img/user.png" alt="imagem do usuário"><img>
         </div>
+      </div>
 
-    <!-- Fim do Container Principal -->    
-    </div>
-
-    
+      <!-- Container Formulário -->
+      <div class="container form">
+        <form action="/cadastro" method="POST">
+          <div class="form-group row" aling="text-center">
+            <div class="col-sm-12">
+              <input name="RM" type="text" class="form-control numerico text-center" id="inputPassword" placeholder="RM"
+                required="required" aria-describedby="RMHelpBlock">
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-12">
+              <input name="senha" type="password" class="form-control numerico text-center" id="inputPassword3"
+                placeholder="Senha" required="required" aria-describedby="senhaHelpBlock">
+            </div>
+          </div>
+          <div class="col-sm-12">
+            <button type="submit" class="btn btn-logar">Logar</button>
+          </div>
+        </form> <!-- Fim do Formulário -->
+      </div> <!-- Fim do Container formulário -->
+    </div> <!-- Fim da Coluna 'col' -->
+  </div> <!-- Fim da Linha 'row' -->
+</div> <!-- Fim do Container Principal -->
