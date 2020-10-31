@@ -4,15 +4,15 @@
 <navbar>
   <div class="container">
     <br>
-    <a href="/cadastrados"><button class="bt-voltar">VOLTAR</button></a>
+    <a href="/cadastrados"><button class="btn-bottom">VOLTAR</button></a>
     <hr>
-    <h2 class="tituloP mb-3 text-center">Cadastrar calendário: </h2>
+    <h2 class="tituloP mb-3 card-header text-center">Cadastrar calendário: </h2>
     
   </div>
 </navbar>
 
 <!-- Seleciona calendário a cadastrar -->
-<div class="container col-lg-8 col-md-8 col-sm-12">
+<div class="container text-center col-lg-4 col-md-6 col-sm-8">
   
   <form action="/cadastrando" method="POST">
     <div class="card-body text-dark">
@@ -35,7 +35,7 @@
                 <input name="semestre" type="integer" class="form-control text-center" required="required"
                   aria-describedby="semestreHelpBlock">
               </td>
-              <td><a href="/edit/{{ano}}{{id}}"><button>CADASTRAR</button></a></td>
+              <td><a href="/edit/{{ano}}{{id}}"><button class="btn-bottom">CADASTRAR</button></a></td>
             </tr>
           </tbody>
         </table>
@@ -45,66 +45,62 @@
 </div> <!-- Fim do Container formulário -->
 
 <!-- Cadastro de calendários -->
-<div class="container col-lg-9 col-md-9 col-sm-11">
-  <table class="table table table-bordered">
+<div class="container text-center col-lg-6 col-md-8 col-sm-10">
+  <table class="table table table-bordered card-header-estrutura">
     <thead>
-      <tr>
-        <th scope="col">SEG</th>
-        <th scope="col">TER</th>
-        <th scope="col">QUA</th>
-        <th scope="col">QUI</th>
-        <th scope="col">SEX</th>
-        <th scope="col">SAB</th>
-        <th scope="col">DOM</th>
+      <tr class="diaSemana">
+        <th scope="col">Domingo</th>
+        <th scope="col">Segunda</th>
+        <th scope="col">Terça</th>
+        <th scope="col">Quarta</th>
+        <th scope="col">Quinta</th>
+        <th scope="col">Sexta</th>
+        <th scope="col">Sábado</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td></td>
         <td></td>
-        <td>01</td>
-        <td>02</td>
-        <td>03</td>
-        <td>04</td>
-        <td>05</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
-        <td>06</td>
-        <td>07</td>
-        <td>08</td>
-        <td>09</td>
-        <td>10</td>
-        <td>11</td>
-        <td>12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
-        <td>13</td>
-        <td>14</td>
-        <td>15</td>
-        <td>16</td>
-        <td>17</td>
-        <td>18</td>
-        <td>19</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
-        <td>20</td>
-        <td>21</td>
-        <td>22</td>
-        <td>23</td>
-        <td>24</td>
-        <td>25</td>
-        <td>
-          {{#each dados}}
-          <span>{{this}}</span>
-          {{/each}}
-        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
       <tr>
-        <td>27</td>
-        <td>28</td>
-        <td>29</td>
-        <td>30</td>
-        <td>31</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
       </tr>
