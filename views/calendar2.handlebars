@@ -1,3 +1,88 @@
 {{body}}
     
     <h2>Em breve, esse será o calendário do 2º SEMESTRE, aguarde a homologação!!!</h2>
+
+    <!-- Calendar 2 -->
+<div class="container">
+  <br>
+  <a href="/cadastrados"><button class="btn-bottom">VOLTAR</button></a>
+  <hr>
+
+  <!-- Form -->
+  <div class="card border mb-3 shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Form Header -->
+    <div class="card-header text-center">
+      <h7>Calendário 2º semestre</h7>
+    </div>
+    <br>
+
+    <!-- Cadastro de calendários -->
+    <div class="container col-lg-8 col-md-10 col-sm-12 text-center mc">
+      <table class="table table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Dom</th>
+            <th scope="col">Seg</th>
+            <th scope="col">Ter</th>
+            <th scope="col">Qua</th>
+            <th scope="col">Qui</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Sab</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td>01</td>
+            <td>02</td>
+            <td>03</td>
+            <td>04</td>
+            <td>05</td>
+          </tr>
+          <tr>
+            <td>06</td>
+            <td>07</td>
+            <td>08</td>
+            <td>09</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td class="alert alert-danger">15 <br>
+              {{#each dados}}
+              <span>{{this}}</span>
+              {{/each}}
+            </td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

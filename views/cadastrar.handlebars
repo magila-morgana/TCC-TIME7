@@ -7,13 +7,13 @@
     <a href="/cadastrados"><button class="btn-bottom">VOLTAR</button></a>
     <hr>
     <h2 class="tituloP mb-3 card-header text-center">Cadastrar calendário: </h2>
-    
+
   </div>
 </navbar>
 
 <!-- Seleciona calendário a cadastrar -->
 <div class="container text-center col-lg-4 col-md-6 col-sm-8">
-  
+
   <form action="/cadastrando" method="POST">
     <div class="card-body text-dark">
       <div class="row">
@@ -28,12 +28,22 @@
           <tbody>
             <tr>
               <td>
-                <input name="ano" type="integer" class="form-control numerico text-center" required="required"
+                <input name="ano" type="integer" class="form-control numerico text-center" placeholder="aaaa" required="required"
                   aria-describedby="anoHelpBlock">
               </td>
               <td>
-                <input name="semestre" type="integer" class="form-control text-center" required="required"
-                  aria-describedby="semestreHelpBlock">
+                <div class="dropdown">
+                  <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown">escolher
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu text-center">
+                    <li><a href="/edit/{{ano}}{{id}}" name="semestre" class="menu">1º semestre</a></li>
+                    <li><a href="/edit/{{ano}}{{id}}" name="semestre" class="menu">2º semestre</a></li>
+                  </ul>
+                </div>
+                
+                <!-- input name="semestre" type="integer" class="form-control text-center" required="required"
+                  aria-describedby="semestreHelpBlock" -->
               </td>
               <td><a href="/edit/{{ano}}{{id}}"><button class="btn-bottom">CADASTRAR</button></a></td>
             </tr>
@@ -43,8 +53,11 @@
     </div>
   </form> <!-- Fim do Formulário -->
 </div> <!-- Fim do Container formulário -->
+<br><br><br>
 
-<!-- Cadastro de calendários -->
+
+
+<!-- Estrutura do calendário -->
 <div class="container text-center col-lg-6 col-md-8 col-sm-10">
   <table class="table table table-bordered card-header-estrutura">
     <thead>
@@ -107,8 +120,3 @@
     </tbody>
   </table>
 </div>
-
-<!-- jQuery, popper e Bootstrap -->
-<script src="./js/jquery-3.5.1.slim.min.js"></script>
-<script src="./js/popper.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>

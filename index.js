@@ -2,8 +2,9 @@
 const express = require('express')
 const Handlebars = require('handlebars');
 const expressHandlebars = require('express-handlebars'),
-    { alowInsecurePrototypeAccess, allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
+  { alowInsecurePrototypeAccess, allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const bodyParser = require('body-parser')
+const path = require('path');
 const Calendario = require('./models/Calendario')
 const Evento = require('./models/Evento')
 const Login = require('./models/Login')
@@ -16,12 +17,11 @@ app.engine('handlebars', expressHandlebars({
     handlebars: allowInsecurePrototypeAccess(Handlebars),
 }));
 app.set('view engine', 'handlebars')
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')));
 
 // configurar o bodyParser
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 
 // ************************************************* GERAL *************************************************
 // Rota - Tela HOME (front-end: escolhe calendário curso)
@@ -93,15 +93,7 @@ app.get('/del/:id', (req, res) => {
 // Rota - deletar CALENDÁRIOS (back-end: deleta cadastros do BD)
 app.get('/delet/:id', (req, res) => {
     Calendario.destroy({ where: { 'id': req.params.id } }).then(() => {
-        Calendario.findAll({
-            order: [
-                ['id']
-            ]
-        }).then((calendarios) => {
-            res.render('cadastrados', { calendarios: calendarios })
-        }).catch((erro) => {
-            res.send("Houve um erro: " + erro)
-        })
+      res.redirect('/cadastrados')
     }).catch((erro) => {
         res.send("Esta postagem não existe!")
     })

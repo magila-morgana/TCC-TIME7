@@ -21,13 +21,12 @@
       </div>
 
       <!-- Col_2 -->
-      <div class="container col-lg-6 col-md-6 col-sm-10">
+      <div class="container col-lg-6 col-md-8 col-sm-12 ml text-center">
         <div class="card-body text-dark">
           <div class="row">
-            <table class="table table table-bordered">
+            <table class="table table-bordered">
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
                   <th scope="col">ANO</th>
                   <th scope="col">SEMESTRE</th>
                   <th scope="col">EDITAR</th>
@@ -37,7 +36,6 @@
               <tbody>
                 {{#each calendarios}}
                 <tr>
-                  <td>{{ano}}{{id}}</td>
                   <td>{{ano}}</td>
                   <td>{{semestre}}</td>
                   <td><a href="/edit/{{id}}"><button class="btn-bottom">EDITAR</button></a></td>

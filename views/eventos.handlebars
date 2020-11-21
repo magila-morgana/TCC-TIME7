@@ -1,98 +1,33 @@
 {{body}}
 
-  <!-- Eventos -->
+<!-- Calendar 2 -->
 <div class="container">
   <br>
   <a href="/cadastrados"><button class="btn-bottom">VOLTAR</button></a>
   <hr>
 
-  <!-- Form -->
-  <div class="card border mb-3 shadow-lg p-3 mb-5 bg-white rounded">
-
-    <!-- Form Header -->
+  <!-- Navbar -->
+  <navbar class=" mb-3 shadow-lg rounded">
     <div class="card-header text-center">
-      <h7>Eventos</h7>
+      <h7>Atividade do DIA</h7>
     </div>
+  </navbar>
 
-    {{#each calendarios}}
-    <p>ID: {{id}}</p>
-    <p>ANO: {{ano}}</p>
-    <p>SEMESTRE: {{semestre}}</p>
-    
-    <a href="/delet/{{id}}"><button>DELETAR</button></a>  
-    <br><br>
+  <!-- Container EVENTO -->
+  <div class="container btn-evento mt-3 col-lg-6 col-md-8 col-sm-10">
 
-    <hr>
-    {{/each}}
-    <br>
+    <!-- Formulário EVENTO -->
+    <form action="/calendar2" method="POST">
+      
+      <!-- DATA -->
+      <div class="card-body text-white mb-5">
+        <input type="date" id="dia" name="dia">
 
-
-    <!-- Cadastro de calendários -->
-    <div class="container col-lg-9 col-md-9 col-sm-11">
-      <table class="table table table-bordered">
-        <thead>
-          <tr>
-            <th scope="col">SEG</th>
-            <th scope="col">TER</th>
-            <th scope="col">QUA</th>
-            <th scope="col">QUI</th>
-            <th scope="col">SEX</th>
-            <th scope="col">SAB</th>
-            <th scope="col">DOM</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>01</td>
-            <td>02</td>
-            <td>03</td>
-            <td>04</td>
-            <td>05</td>
-          </tr>
-          <tr>
-            <td>06</td>
-            <td>07</td>
-            <td>08</td>
-            <td>09</td>
-            <td>10</td>
-            <td>11</td>
-            <td>12</td>
-          </tr>
-          <tr>
-            <td>13</td>
-            <td>14</td>
-            <td>15</td>
-            <td>16</td>
-            <td>17</td>
-            <td>18</td>
-            <td>19</td>
-          </tr>
-          <tr>
-            <td>20</td>
-            <td>21</td>
-            <td>22</td>
-            <td>23</td>
-            <td>24</td>
-            <td>25</td>
-            <td>15 <br>
-              {{#each dados}}
-              <span>{{this}}</span>
-              {{/each}}
-            </td>
-          </tr>
-          <tr>
-            <td>27</td>
-            <td>28</td>
-            <td>29</td>
-            <td>30</td>
-            <td>31</td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>  
+        <!-- DESCRIÇÃO -->
+        <textarea class="mt-5 text-center" id="descricao" name="descricao" rows="2" cols="50" placeholder="Insira a descrição da atividade"></textarea>
+        <br>
+        <button class="mt-3 btn-bottom">CADASTRAR</button>
+      </div>     
+    </form> <!-- Fim do Formulário -->
+  </div> <!-- Fim do container EVENTO -->
+</div><!-- Fim do CALENDAR -->
