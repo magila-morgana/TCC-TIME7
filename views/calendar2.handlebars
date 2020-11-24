@@ -1,8 +1,11 @@
 {{body}}
-    
-    <h2>Em breve, esse será o calendário do 2º SEMESTRE, aguarde a homologação!!!</h2>
 
-    <!-- Calendar 2 -->
+<div class="text-center">
+<h2>Em breve, esse será o calendário do 2º SEMESTRE, aguarde a homologação!!!</h2>
+</div>
+
+{{#each eventos}}
+<!-- Calendar 2 -->
 <div class="container">
   <br>
   <a href="/cadastrados"><button class="btn-bottom">VOLTAR</button></a>
@@ -19,8 +22,8 @@
 
     <!-- Cadastro de calendários -->
     <div class="container col-lg-8 col-md-10 col-sm-12 text-center mc">
-      <table class="table table table-bordered">
-        <thead>
+      <table class="table table-bordered">
+        <thead> 
           <tr>
             <th scope="col">Dom</th>
             <th scope="col">Seg</th>
@@ -32,10 +35,14 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+            <tr>
             <td></td>
             <td></td>
-            <td>01</td>
+            <td class="alert alert-danger">01
+              <div>
+              {{descricao}}
+              </div>
+            </td>
             <td>02</td>
             <td>03</td>
             <td>04</td>
@@ -66,11 +73,7 @@
             <td>23</td>
             <td>24</td>
             <td>25</td>
-            <td class="alert alert-danger">15 <br>
-              {{#each dados}}
-              <span>{{this}}</span>
-              {{/each}}
-            </td>
+            <td>26</td>
           </tr>
           <tr>
             <td>27</td>
@@ -86,3 +89,4 @@
     </div>
   </div>
 </div>
+{{/each}}

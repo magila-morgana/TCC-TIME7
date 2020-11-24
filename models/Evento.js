@@ -5,19 +5,19 @@ const bd = require('./bd')
 // MODEL 2 - Evento
 const Evento = bd.sequelize.define('eventos',
 {
-    data: {type: bd.Sequelize.DATEONLY},
-    descrição: {type: bd.Sequelize.STRING},
+    data: {type: bd.Sequelize.STRING(10)},
+    descricao: {type: bd.Sequelize.TEXT}
 })
 
 // ********** GERAR tabelas novas **********
 // Evento.sync({force: true})
 
 /********** INSERT INTO TABLE eventos **********
-  INSERT 01
+  INSERT 01  
 Evento.create(
 {
-    data: "2020-09-20",
-    descrição: "LETIVO - apresentação musical",
+    data: "0000-00-00",
+    descrição: "HOJE 22/11/2020",
 }) */
 
 module.exports = Evento 

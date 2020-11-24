@@ -66,7 +66,6 @@ div.form-group {
   div.ml {
     margin-left: auto;
     margin-right: auto;
-
   }
 }
 
@@ -74,7 +73,6 @@ div.form-group {
   div.mc {
     margin-left: -7.5px;
     margin-right: auto;
-    
   }
 }
 
@@ -145,3 +143,4 @@ a.menu:hover {
   background: linear-gradient(to bottom, rgb(0, 0, 50), rgb(30, 70, 90)); 
   border-radius: 20px;
 }
+

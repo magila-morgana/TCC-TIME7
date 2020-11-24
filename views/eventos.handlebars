@@ -17,16 +17,16 @@
   <div class="container btn-evento mt-3 col-lg-6 col-md-8 col-sm-10">
 
     <!-- Formulário EVENTO -->
-    <form action="/calendar2" method="POST">
+    <form action="/cadastrandoevento" method="POST">
       
       <!-- DATA -->
       <div class="card-body text-white mb-5">
-        <input type="date" id="dia" name="dia">
+        <input type="date" id="data" name="data">
 
         <!-- DESCRIÇÃO -->
-        <textarea class="mt-5 text-center" id="descricao" name="descricao" rows="2" cols="50" placeholder="Insira a descrição da atividade"></textarea>
+        <textarea class="mt-5" id="descricao" name="descricao" type="textarea" rows="2" cols="50" placeholder="Insira a descrição da atividade"></textarea>
         <br>
-        <button class="mt-3 btn-bottom">CADASTRAR</button>
+        <button class="mt-3 btn-bottom" type="submit">CADASTRAR</button>
       </div>     
     </form> <!-- Fim do Formulário -->
   </div> <!-- Fim do container EVENTO -->
