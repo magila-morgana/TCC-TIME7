@@ -77,7 +77,6 @@ div.form-group {
 }
 
 /* Form Header */
-
 .card-header {
   color: white;
   background-image: linear-gradient(to top, #000030, #307090);
@@ -87,10 +86,10 @@ div.form-group {
   margin-bottom: auto;
 }
 
-.card-header-estrutura {
+.card-header-estrutura, .card-header-calendar {
   color: white;
-  background: linear-gradient(to bottom, #000030, #169adb);
-  font-size: 10px;
+  background: linear-gradient(to bottom, #000030, #20668a);
+  font-size: 12px;
   font-family: 'Geneva';
   margin-top: auto;
   margin-bottom: auto;
@@ -116,12 +115,12 @@ div.form-group {
   background-color: rgb(0, 0, 50);
 }
 
-ul.dropdown-menu {
+.dropdown-menu {
   background: linear-gradient(to bottom, rgb(0, 0, 50), rgb(30, 70, 90));
   color: white;
 }
 
-ul.dropdown-menu:hover {
+.dropdown-menu:hover {
   background: linear-gradient(to bottom, rgb(0, 0, 100), rgb(60, 140, 180));
   color: white;
 }

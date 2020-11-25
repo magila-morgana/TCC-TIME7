@@ -37,12 +37,12 @@
                     <span class="caret"></span>
                   </button>
                   <ul class="dropdown-menu text-center">
-                    <li><a href="/edit/{{ano}}{{id}}" name="semestre" class="menu">1º semestre</a></li>
-                    <li><a href="/edit/{{ano}}{{id}}" name="semestre" class="menu">2º semestre</a></li>
+                    <li><a href="/escolhersemestre" name="semestre1" class="menu">1º semestre</a></li>
+                    <li><a href="/escolhersemestre" name="semestre2" class="menu">2º semestre</a></li>
                   </ul>
                 </div -->
-                
-                <input name="semestre" type="integer" class="form-control text-center" required="required"
+               
+                <input name="semestre" type="integer" class="form-control text-center" placeholder="1 / 2" required="required"
                   aria-describedby="semestreHelpBlock">
               </td>
               <td><a href="/edit/{{ano}}{{id}}"><button class="btn-bottom">CADASTRAR</button></a></td>
@@ -54,8 +54,6 @@
   </form> <!-- Fim do Formulário -->
 </div> <!-- Fim do Container formulário -->
 <br><br><br>
-
-
 
 <!-- Estrutura do calendário -->
 <div class="container text-center col-lg-6 col-md-8 col-sm-10">

@@ -1,10 +1,9 @@
 {{body}}
 
 <div class="text-center">
-<h2>Em breve, esse será o calendário do 2º SEMESTRE, aguarde a homologação!!!</h2>
+  <h2>Em breve, esse será o calendário do 2º SEMESTRE, aguarde a homologação!!!</h2>
 </div>
 
-{{#each eventos}}
 <!-- Calendar 2 -->
 <div class="container">
   <br>
@@ -20,73 +19,81 @@
     </div>
     <br>
 
-    <!-- Cadastro de calendários -->
-    <div class="container col-lg-8 col-md-10 col-sm-12 text-center mc">
-      <table class="table table-bordered">
-        <thead> 
-          <tr>
-            <th scope="col">Dom</th>
-            <th scope="col">Seg</th>
-            <th scope="col">Ter</th>
-            <th scope="col">Qua</th>
-            <th scope="col">Qui</th>
-            <th scope="col">Sex</th>
-            <th scope="col">Sab</th>
+    <!-- Estrutura do calendário -->
+    <div class="container text-center col-lg-6 col-md-8 col-sm-12">
+      <table class="table table table-bordered card-header-calendar">
+        <thead>
+          <tr class="diaSemana">
+            <th scope="col">Domingo</th>
+            <th scope="col">Segunda</th>
+            <th scope="col">Terça</th>
+            <th scope="col">Quarta</th>
+            <th scope="col">Quinta</th>
+            <th scope="col">Sexta</th>
+            <th scope="col">Sábado</th>
           </tr>
         </thead>
         <tbody>
-            <tr>
-            <td></td>
-            <td></td>
-            <td class="alert alert-danger">01
-              <div>
-              {{descricao}}
-              </div>
+          <tr>
+            <td>
+              <div class="alert alert-danger">1</div>
             </td>
-            <td>02</td>
-            <td>03</td>
-            <td>04</td>
-            <td>05</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
           </tr>
           <tr>
-            <td>06</td>
-            <td>07</td>
-            <td>08</td>
-            <td>09</td>
+            <td>
+              <div class="alert alert-danger">8</div>
+            </td>
+            <td>9</td>
             <td>10</td>
             <td>11</td>
             <td>12</td>
-          </tr>
-          <tr>
             <td>13</td>
             <td>14</td>
-            <td>15</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="alert alert-danger">15
+                <br>
+                {{#each eventos}}
+                <p>{{descricao}}</p>
+                {{/each}}
+              </div>
+            </td>
             <td>16</td>
             <td>17</td>
             <td>18</td>
             <td>19</td>
-          </tr>
-          <tr>
             <td>20</td>
             <td>21</td>
-            <td>22</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="alert alert-danger">22</div>
+            </td>
             <td>23</td>
             <td>24</td>
             <td>25</td>
             <td>26</td>
-          </tr>
-          <tr>
             <td>27</td>
             <td>28</td>
-            <td>29</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="alert alert-danger">29</div>
+            </td>
             <td>30</td>
             <td>31</td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
           </tr>
         </tbody>
       </table>
     </div>
-  </div>
-</div>
-{{/each}}

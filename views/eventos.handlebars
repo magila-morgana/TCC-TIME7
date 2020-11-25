@@ -14,17 +14,17 @@
   </navbar>
 
   <!-- Container EVENTO -->
-  <div class="container btn-evento mt-3 col-lg-6 col-md-8 col-sm-10">
+  <div class="container btn-evento mt-5 col-lg-6 col-md-8 col-sm-10">
 
     <!-- Formulário EVENTO -->
     <form action="/cadastrandoevento" method="POST">
       
       <!-- DATA -->
       <div class="card-body text-white mb-5">
-        <input type="date" id="data" name="data">
+        <input class="text-center" type="date" id="data" name="data" required="required" aria-describedby="dataHelpBlock">
 
         <!-- DESCRIÇÃO -->
-        <textarea class="mt-5" id="descricao" name="descricao" type="textarea" rows="2" cols="50" placeholder="Insira a descrição da atividade"></textarea>
+        <textarea class="form-control mt-5" id="descricao" name="descricao" type="textarea" rows="2" cols="50" placeholder="Insira a descrição da atividade" required="required" aria-describedby="descricaoHelpBlock"></textarea>
         <br>
         <button class="mt-3 btn-bottom" type="submit">CADASTRAR</button>
       </div>     

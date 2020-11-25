@@ -36,7 +36,7 @@ app.get('/adm', (req, res) => {
 })
 
 // Rota - Tela ADMIN (front-end: login)
-app.get('/edit/:id', (req, res) => {
+app.get('/edit/:ano/:id', (req, res) => {
   res.render('eventos')
 })
 
@@ -90,7 +90,7 @@ app.get('/del/:id', (req, res) => {
 })
 
 // Rota - deletar CALENDÁRIOS (back-end: deleta cadastros do BD)
-app.get('/delet/:id', (req, res) => {
+app.get('/delet/:ano/:id', (req, res) => {
   Calendario.destroy({ where: { 'id': req.params.id } }).then(() => {
     res.redirect('/cadastrados')
   }).catch((erro) => {
@@ -157,7 +157,6 @@ app.get('/calendar1', (req, res) => {
 app.get('/calendar2', (req, res) => {
   Evento.findAll({
   }).then((eventos) => {
-    console.log(eventos)
     res.render('calendar2', { eventos: eventos })
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
