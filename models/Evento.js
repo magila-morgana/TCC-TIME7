@@ -5,7 +5,7 @@ const bd = require('./bd')
 // MODEL 2 - Evento
 const Evento = bd.sequelize.define('eventos',
 {
-    data: {type: bd.Sequelize.STRING(10)},
+    data: {type: bd.Sequelize.DATE},
     descricao: {type: bd.Sequelize.TEXT}
 })
 

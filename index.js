@@ -157,12 +157,40 @@ app.get('/calendar1', (req, res) => {
 app.get('/calendar2', (req, res) => {
   Evento.findAll({
   }).then((eventos) => {
-    res.render('calendar2', { eventos: eventos })
+
+    let datas = []
+
+    eventos.forEach(element => {
+
+      let data = {
+        data: element.data,
+        descricao: element.descricao
+      }
+
+      datas.push(data)
+      console.log(element.data)      
+    });
+
+    datas.push({
+      data: '2020-11-23',
+      descricao: ''
+    })
+
+    datas.push({
+      data: '2020-11-25',
+      descricao: ''
+    })
+
+    datas.push({
+      data: '2020-11-26',
+      descricao: ''
+    })
+
+    res.render('calendar2', { semana1: datas, semana2: datas, semana3: datas, semana4: datas, semana5: datas })
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
   })
 })
-
 
 // ******************************************************************
 // ouvir uma porta
