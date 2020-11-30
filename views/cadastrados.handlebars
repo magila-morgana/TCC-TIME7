@@ -2,8 +2,8 @@
 
 <div class="container">
   <br>
-  <a href="/adm"><button class="btn-bottom">VOLTAR</button></a>
-  <a href="/cadastrar"><button class="btn-bottom">CADASTRAR</button></a>
+  <a href="/adm"><button class="btn-button">VOLTAR</button></a>
+  <a href="/cadastrar"><button class="btn-button">CADASTRAR</button></a>
   <hr>
 
   <!-- Form -->
@@ -13,6 +13,8 @@
     <div class="card-header text-center">
       <h7>Lista de calendários cadastrados - ETEC</h7>
     </div>
+
+    <!-- Colunas -->
     <div class="row">
 
       <!-- Col_1 -->
@@ -29,7 +31,7 @@
                 <tr>
                   <th scope="col">ANO</th>
                   <th scope="col">SEMESTRE</th>
-                  <th scope="col">EDITAR</th>
+                  <th scope="col">ADICIONAR</th>
                   <th scope="col">EXCLUIR</th>
                 </tr>
               </thead>
@@ -38,18 +40,18 @@
                 <tr>
                   <td>{{ano}}</td>
                   <td>{{semestre}}</td>
-                  <td><a href="/edit/{{ano}}/{{id}}"><button class="btn-bottom">EDITAR</button></a></td>
-                  <td><a href="/delet/{{ano}}/{{id}}"><button class="btn-bottom">DELETAR</button></a></td>
+                  <td><a href="/add/{{ano}}/{{id}}"><button class="btn-button">+ EVENTOS</button></a></td>
+                  <td><a href="/delet/{{ano}}/{{id}}"><button class="btn-button">DELETAR</button></a></td>
                 </tr>
                 {{/each}}
               </tbody>
             </table>
           </div>
         </div>
-      </div> <!-- Fim do Container formulário -->  
+      </div> <!-- Fim do Container formulário -->
     </div>
+    <a href="/logins">
+      <i class="fas fa-user-lock"></i>
+    </a>
   </div>
 </div>
-
-
-

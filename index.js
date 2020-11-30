@@ -36,8 +36,8 @@ app.get('/adm', (req, res) => {
 })
 
 // Rota - Tela ADMIN (front-end: login)
-app.get('/edit/:ano/:id', (req, res) => {
-  res.render('eventos')
+app.get('/add/:ano/:id', (req, res) => {
+  res.render('addevento')
 })
 
 // Rota - cadastro LOGIN (back-end: cadastra os dados das inputs no BD e redireciona: LOGIN ou HOME (front-end)) 
@@ -136,7 +136,7 @@ app.post('/cadastrandoevento', (req, res) => {
     descricao: req.body.descricao
   }).then(() => {
     //  (front-end: redirecionando para CADASTRADOS)
-    res.redirect('calendar2')
+    res.redirect('addevento')
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
   })
@@ -154,7 +154,7 @@ app.get('/calendar1', (req, res) => {
 })
 
 // Rota - Tela CALENDÁRIO (front-end: visualiza calendário 2)
-app.get('/calendar2', (req, res) => {
+app.get('/addevento', (req, res) => {
   Evento.findAll({
   }).then((eventos) => {
 
@@ -186,7 +186,7 @@ app.get('/calendar2', (req, res) => {
       descricao: ''
     })
 
-    res.render('calendar2', { semana1: datas, semana2: datas, semana3: datas, semana4: datas, semana5: datas })
+    res.render('addevento', { semana1: datas, semana2: datas, semana3: datas, semana4: datas, semana5: datas })
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
   })

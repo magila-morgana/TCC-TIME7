@@ -1,16 +1,40 @@
 {{body}}
 
-<h2 class="tituloP">Lista de LOGINS: </h2>
-<br>
-<a href="/cadastrados"><button>VOLTAR</button></a>
-<hr>
+<!-- Formulário LOGINS -->
+<div class="card-border shadow-lg p-5 rounded">
+  <a href="/cadastrados"><button class="btn-button">VOLTAR</button></a>
+  <hr>
 
-{{#each logins}}
-<h3>RM: {{RM}}</h3>
-<p>Senha: {{senha}}</p>
+  <div class="card-header text-center">
+    <h7>Lista de LOGINS:</h7>
+  </div>
 
-<a href="/del/{{id}}"><button>DELETAR</button></a>
-<br><br>
-
-<hr>
-{{/each}}
+  <!-- Estrutura do LOGIN -->
+  <div class="container text-center col-lg-6 col-md-8 col-sm-12">
+    <table class="table table-bordered card-header-logins">
+      <thead>
+        <tr class="diaSemana">
+          <th scope="col">RM</th>
+          <th scope="col">Senha</th>
+          <th scope="col">DELETAR</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each logins}}
+        <tr>
+          <td>
+            <h6 class="text-center">{{RM}}</h6>
+          </td>
+          <td>
+            <h6 class="text-center">{{senha}}</h6>
+          </td>
+          <td><a href="/del/{{id}}"><button class="btn-button-trash text-center"><img class="trash" src="/img/trash.png"
+                  alt="lixo"><img></button></a>
+          </td>
+          <br><br>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

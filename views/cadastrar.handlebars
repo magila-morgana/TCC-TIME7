@@ -4,109 +4,57 @@
 <navbar>
   <div class="container">
     <br>
-    <a href="/cadastrados"><button class="btn-bottom">VOLTAR</button></a>
+    <a href="/cadastrados"><button class="btn-button">VOLTAR</button></a>
     <hr>
     <h2 class="tituloP mb-3 card-header text-center">Cadastrar calendário: </h2>
 
   </div>
 </navbar>
 
-<!-- Seleciona calendário a cadastrar -->
-<div class="container text-center col-lg-4 col-md-6 col-sm-8">
+<!-- Container CADASTRO -->
+<div class="container btn-evento text-center col-lg-4 col-md-6 col-sm-8">
 
+  <!-- Formulário CADASTRO -->
   <form action="/cadastrando" method="POST">
-    <div class="card-body text-dark">
-      <div class="row">
-        <table class="table table table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">ANO</th>
-              <th scope="col">SEMESTRE</th>
-              <th scope="col">CADASTRAR</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input name="ano" type="integer" class="form-control numerico text-center" placeholder="aaaa" required="required"
-                  aria-describedby="anoHelpBlock">
-              </td>
-              <td>
-                <select name="semestre" class="form-control text-center" required="required">
-                  <option value="1">1º semestre</option>
-                  <option value="2">2º semestre</option>
-                </select>
-              </td>
-              <td><a href="/edit/{{ano}}{{id}}"><button class="btn-bottom">CADASTRAR</button></a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </form> <!-- Fim do Formulário -->
-</div> <!-- Fim do Container formulário -->
-<br><br><br>
 
-<!-- Estrutura do calendário -->
-<div class="container text-center col-lg-6 col-md-8 col-sm-10">
-  <table class="table table table-bordered card-header-estrutura">
-    <thead>
-      <tr class="diaSemana">
-        <th scope="col">Domingo</th>
-        <th scope="col">Segunda</th>
-        <th scope="col">Terça</th>
-        <th scope="col">Quarta</th>
-        <th scope="col">Quinta</th>
-        <th scope="col">Sexta</th>
-        <th scope="col">Sábado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    <!-- Navbar -->
+    <navbar class="shadow-lg rounded">
+      <div class="btn-evento-editar text-center">
+        <h7>Cadastrar calendário</h7>
+      </div>
+    </navbar>
+
+    <!-- Campos -->
+    <div class="card-body text-white m-2">
+
+      <!-- Ano -->
+      <label class="Is-label">
+        <b class="Is-label-text">ANO:</b>
+        <br>
+        <input data-ls-module="charCounter" maxlength="4" name="ano" type="integer" id="w-p"
+          class="form-control-sm numerico text-center" placeholder="" required="required">
+      </label>
+
+      <br><br>
+
+      <!-- Semestre -->
+      <label class="Is-label">
+        <b class="Is-label-text">SEMESTRE:</b>
+        <br>
+        <select name="semestre" class="form-control-lg text-center" required="required">
+          <option value="1">1º semestre</option>
+          <option value="2">2º semestre</option>
+        </select>
+      </label>
+
+      <br><br>
+
+      <!-- Button -->
+      <a href="/edit/{{ano}}{{id}}"><button class="btn-button" type="submit">CADASTRAR</button></a>
+    </div>
+  </form>
+</div>  
+
+
+
+

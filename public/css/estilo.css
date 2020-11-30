@@ -1,5 +1,34 @@
 /* GLOBAL */
+.btn-button {
+  background: linear-gradient(to bottom, #000050, #307090);
+  color: white;
+}
 
+.btn-button:hover {
+  background: linear-gradient(to top, #000050, #307090);
+  color: white;
+}
+
+.btn-button-claro {
+  background: rgba(128, 208, 220, 0.9);  
+  color: black;
+}
+
+.btn-button-claro:hover {
+  background: rgba(0, 147, 233, 0.5);
+  color: white;
+}
+
+/* Título Estrutura Calendário e Logins*/
+.diaSemana {
+  margin-top: 5px;
+  padding: 30px;
+  font-family: Cochin;
+  font-style: italic;
+  font-size: 15px;
+  color: white;
+  background-color: rgb(0, 0, 50);
+}
 
 /********************************** CSS ADMIN.handlebars **********************************/
 /* Container Título */
@@ -51,16 +80,30 @@ div.form-group {
     margin-right: auto;
 }
 
-.btn-bottom {
-    background: linear-gradient(to bottom, #000050, #307090);
+/* Logins */
+.trash {
+  max-height: 25px;
+  max-width: auto;
+}
+
+.btn-button-trash {
+  background: rgb(00, 00, 50);
+  color: white;
+}
+
+.btn-button-.trash {
+  background: rgb(00, 00, 100);
     color: white;
 }
 
-.btn-bottom:hover {
-    background: linear-gradient(to top, #000050, #307090);
-    color: white;
+.card-header-logins {
+  color: white;
+  background: linear-gradient(to bottom, #000030, #20668a);
+  font-size: 5px;
+  font-family: 'Geneva';
+  margin-top: 10px;
+  margin-bottom: auto;
 }
-
 /*************************************** CSS CADASTRADOS.handlebars ***************************************/
 @media screen and (max-width: 600px) {
   div.ml {
@@ -103,28 +146,6 @@ div.form-group {
 }
 
 /**************************************** CSS CADASTRAR.handlebars ****************************************/
-
-/* Título Estrutura Calendário */
-.diaSemana {
-  margin-top: 5px;
-  padding: 30px;
-  font-family: Cochin;
-  font-style: italic;
-  font-size: 15px;
-  color: white;
-  background-color: rgb(0, 0, 50);
-}
-
-.dropdown-menu {
-  background: linear-gradient(to bottom, rgb(0, 0, 50), rgb(30, 70, 90));
-  color: white;
-}
-
-.dropdown-menu:hover {
-  background: linear-gradient(to bottom, rgb(0, 0, 100), rgb(60, 140, 180));
-  color: white;
-}
-
 a.menu {
   color: white;
 }
@@ -132,14 +153,31 @@ a.menu {
 a.menu:hover {
   color: white;
 }
+
+#w-p {
+  max-width: 100px;
+}
+
 /**************************************** CSS EVENTOS.handlebars ****************************************/
 .btn-evento {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
-  max-width: 150px;
-  max-height: 250px;
-  background: linear-gradient(to bottom, rgb(0, 0, 50), rgb(30, 70, 90)); 
+  max-width: 250px;
+  max-height: 500px;
+  background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255)); 
   border-radius: 20px;
 }
 
+.btn-evento-editar {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;  
+  font-family: 'Geneva';
+  color: white;
+  padding: 5px;
+  max-width: 250px;
+  max-height: 350px;
+  background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255)); 
+  border-radius: 10px;
+}
