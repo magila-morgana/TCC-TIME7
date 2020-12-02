@@ -24,26 +24,78 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// ************************************************* GERAL *************************************************
-// Rota - Tela HOME (front-end: escolhe calendário curso)
+// ***************************************** GERAL - FRONT-END *************************************************
+// ---------- HOME ----------
 app.get('/', (req, res) => {
   res.render('home')
 })
 
+// ---------- CALENDAR ----------
+app.get('/calendar', (req, res) => {
+  res.render('calendar')
+})
+
+// ---------- CALENDAR1 ----------
+app.get('/calendar1', (req, res) => {
+  res.render('calendar1')
+})
+
 // ************************************************* ADMIN *************************************************
-// Rota - Tela ADMIN (front-end: login)
+// ******************************************** FRONT-END TELAS ********************************************
+
+// ---------- LOGIN ----------
 app.get('/adm', (req, res) => {
   res.render('adm')
 })
 
-// Rota - Tela ADMIN (front-end: login)
-app.get('/add/:ano/:id', (req, res) => {
-
-  res.render('addevento')
+// ---------- CADASTRADOS ----------
+app.get('/cadastrados', (req, res) => {
+  Calendario.findAll({
+    order: [
+      ['id', 'ASC']
+    ]
+  }).then((calendarios) => {
+    res.render('cadastrados', { calendarios: calendarios })
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
 })
 
-// Rota - cadastro LOGIN (back-end: cadastra os dados das inputs no BD e redireciona: LOGIN ou HOME (front-end)) 
-app.post('/cadastro', (req, res) => {
+// ---------- CADASTRAR ----------
+app.get('/cadastrar', (req, res) => {
+  res.render('cadastrar')
+})
+
+// ---------- ADDEVENTO ----------
+app.get('/addevento', (req, res) => {
+  Evento.findAll({ 
+    order: [
+      ['data', 'ASC']
+    ] 
+  }).then((eventos) => {
+    let datas = []
+    eventos.forEach(element => {
+      let data = {
+        data: element.data,
+        descricao: element.descricao
+      }
+      datas.push(data)
+      console.log(element.data)
+    });
+    res.render('addevento', { eventos: eventos })
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
+})
+
+
+
+
+
+// **************************************** BACK-END CREATE TABLE ******************************************
+
+// ---------- CREATE LOGINS ----------
+app.post('/cadastrandologin', (req, res) => {
   Login.create({
     RM: req.body.RM,
     senha: req.body.senha
@@ -61,7 +113,37 @@ app.post('/cadastro', (req, res) => {
   })
 })
 
-// Rota - (front-end: retorna os dados do BD para o navegador)
+// ---------- CREATE CALENDARIOS ----------
+app.post('/cadastrandocalendario', (req, res) => {
+  Calendario.create({
+    ano: req.body.ano,
+    semestre: req.body.semestre
+  }).then(() => {
+    //  (front-end: redirecionando para CADASTRADOS)
+    res.redirect('cadastrados')
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
+})
+
+// ---------- CREATE EVENTOS ----------
+app.post('/cadastrandoevento', (req, res) => {
+  Evento.create({ 
+    data: req.body.data,
+    descricao: req.body.descricao
+  }).then(() => {  
+    //  (front-end: redirecionando para CADASTRADOS)
+    res.redirect('addevento')
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
+})
+
+
+
+// **************************************** BACK-END SELECT TABLE ******************************************
+
+// ---------- SELECT LOGINS-ID ----------
 app.get('/logins', (req, res) => {
   Login.findAll({
     order: [
@@ -74,7 +156,27 @@ app.get('/logins', (req, res) => {
   })
 })
 
-// Função - deletar LOGINS (back-end: deleta cadastros do BD)
+// ---------- SELECT CALENDÁRIO-ID-ANO ----------
+app.get('/add/:id/:ano', (req, res) => {
+  Evento.findAll({
+    order: [
+      ['id', 'ASC']
+    ]
+  }).then((eventos) => {
+    res.render('addevento', { eventos: eventos })
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
+})
+
+// ---------- SELECT EVENTO-ID-ANO ----------
+
+
+
+
+// **************************************** BACK-END DELETE INSERT ******************************************
+
+// ---------- DELETE LOGINS ----------
 app.get('/del/:id', (req, res) => {
   Login.destroy({ where: { 'id': req.params.id } }).then(() => {
     Login.findAll({
@@ -91,7 +193,7 @@ app.get('/del/:id', (req, res) => {
   })
 })
 
-// Função - deletar CALENDÁRIOS (back-end: deleta cadastros do BD)
+// ---------- DELETE CALENDÁRIOS ----------
 app.get('/delet/:ano/:id', (req, res) => {
   Calendario.destroy({ where: { 'id': req.params.id } }).then(() => {
     res.redirect('/cadastrados')
@@ -100,101 +202,12 @@ app.get('/delet/:ano/:id', (req, res) => {
   })
 })
 
-// Função - deletar EVENTOS (back-end: deleta cadastros do BD)
+// ---------- DELETE EVENTOS ----------
 app.get('/delevento/:data', (req, res) => {
   Evento.destroy({ where: { 'data': req.params.data } }).then(() => {
-    Evento.findAll({
-      order: [
-        ['data', 'ASC']
-      ]
-    }).then((eventos) => {
-      res.render('addevento', { eventos: eventos })
-    }).catch((erro) => {
-      res.send("Houve um erro: " + erro)
-    })
+    res.redirect('/addevento')
   }).catch((erro) => {
     res.send("Esta postagem não existe!")
-  })
-})
-
-// Rota - (front-end: retorna os dados do BD para o navegador)
-app.get('/cadastrados', (req, res) => {
-  Calendario.findAll({
-    order: [
-      ['id', 'ASC']
-    ]
-  }).then((calendarios) => {
-    res.render('cadastrados', { calendarios: calendarios })
-  }).catch((erro) => {
-    res.send("Houve um erro: " + erro)
-  })
-})
-
-// Rota - chama o template cadastrar CALENDÁRIO (front-end: cadastrar calendários)
-app.get('/cadastrar', (req, res) => {
-  res.render('cadastrar')
-})
-
-// Função - cadastra o CALENDARIO (back-end: cadastra os dados das inputs no BD e redireciona: CADASTRADOS (front-end)) 
-app.post('/cadastrandocalendario', (req, res) => {
-  Calendario.create({
-    ano: req.body.ano,
-    semestre: req.body.semestre
-  }).then(() => {
-    //  (front-end: redirecionando para CADASTRADOS)
-    res.redirect('cadastrados')
-  }).catch((erro) => {
-    res.send("Houve um erro: " + erro)
-  })
-})
-
-// Função - cadastra o EVENTO (back-end: cadastra os dados das inputs no BD e redireciona: addevento (front-end)) 
-app.post('/cadastrandoevento', (req, res) => {
-  eventos[6,5] = Evento.create({
-    data: req.body.data,
-    descricao: req.body.descricao
-  }).then(() => {  
-    //  (front-end: redirecionando para CADASTRADOS)
-    res.redirect('addevento')
-  }).catch((erro) => {
-    res.send("Houve um erro: " + erro)
-  })
-})
-
-// ************************************************ USUÁRIO ************************************************
-// Rota - Tela CALENDÁRIO (front-end: visualiza calendário geral)
-app.get('/calendar', (req, res) => {
-  res.render('calendar')
-})
-
-// Rota - Tela CALENDÁRIO (front-end: visualiza calendário 1)
-app.get('/calendar1', (req, res) => {
-  res.render('calendar1')
-})
-
-// Função - Tela CALENDÁRIO (front-end: visualiza calendário)
-app.get('/addevento', (req, res) => {
-  Evento.findAll({ 
-    order: [
-      ['data', 'ASC']
-    ] 
-  }).then((eventos) => {
-
-    let datas = []
-
-    eventos.forEach(element => {
-
-      let data = {
-        data: element.data,
-        descricao: element.descricao
-      }
-
-      datas.push(data)
-      console.log(element.data)
-    });
-    res.render('addevento', { eventos: eventos })
-  }).catch((erro) => {
-    res.send("Houve um erro: " + erro)
   })
 })
 

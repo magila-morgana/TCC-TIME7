@@ -19,7 +19,7 @@
     <div class="container row">
 
       <!-- Col 1 - Calendário do semestre -->
-      <div class="container text-center col-lg-8 col-md-8 col-sm-12">
+      <div class="container text-center col-lg-8 col-md-12 col-sm-12">
         <table class="table table-bordered card-header-calendar">
           <thead>
             <tr class="diaSemana">
@@ -33,16 +33,24 @@
           </thead>
           <tbody>
             <tr>
-              {{#each eventos}}
-              <td>{{data}}<br>{{descricao}}</td>
-              {{/each}}
+              <td>
+                {{#each eventos}}
+                  {{data}}
+                  <br>
+                  {{descricao}}
+                  <br>
+                  <br>
+                {{/each}}
+              </td>
             </tr>
           </tbody>
         </table>
       </div> <!-- FIM do calendário do semestre -->
+      
+      
 
       <!-- Col 2 - Container EVENTO -->
-      <div class="container btn-evento col-lg-3 col-md-4 col-sm-12">
+      <div class="container btn-evento col-lg-3 col-md-6 col-sm-12">
 
         <!-- Formulário EVENTO -->
         <form action="/cadastrandoevento" method="POST">
@@ -64,14 +72,20 @@
               name="descricao" type="textarea" rows="5" cols="50" placeholder="Insira a descrição da atividade"
               required="required" aria-describedby="descricaoHelpBlock"></textarea>
             <br>
+
+            <!-- BUTTONS -->
             <div class="row">
               <div class="col-6">
+
+                <!-- BUTTON SUBMIT -->
                 <button class="btn-button-claro" type="submit"><img class="trash" src="/img/save.png"
-                  alt="salvar"><img></button>
+                    alt="salvar"><img></button>
               </div>
               <div class="col-6">
-                <button class="btn-button-claro" type="reset"><img class="trash" src="/img/trash.png"
-                  alt="lixo"><img><a href="/delevento/{{data}}"></a></button>
+
+                <!-- BUTTON DELETE -->
+                <button class="btn-button-claro" type="reset"><img class="trash" src="/img/trash.png" alt="lixo"><img><a
+                    href="/delevento/{{data}}"></a></button>
               </div>
             </div>
           </div>

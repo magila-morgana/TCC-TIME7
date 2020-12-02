@@ -165,7 +165,7 @@ a.menu:hover {
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
-  max-width: 250px;
+  max-width: 150px;
   max-height: 500px;
   background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255)); 
   border-radius: 20px;
@@ -178,8 +178,8 @@ a.menu:hover {
   font-family: 'Geneva';
   color: white;
   padding: 5px;
-  max-width: 250px;
-  max-height: 350px;
+  max-width: 150px;
+  max-height: 500px;
   background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255)); 
   border-radius: 10px;
 }
