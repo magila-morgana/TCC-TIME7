@@ -10,13 +10,15 @@
 }
 
 .btn-button-claro {
-  background: rgba(128, 208, 220, 0.9);  
+  background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255));   
   color: black;
+  border-radius: 10px;
 }
 
 .btn-button-claro:hover {
-  background: rgba(0, 147, 233, 0.5);
+  background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(85, 150, 200)); 
   color: white;
+  border-radius: 10px;
 }
 
 /* Título Estrutura Calendário e Logins*/

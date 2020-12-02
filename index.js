@@ -7,7 +7,8 @@ const bodyParser = require('body-parser')
 const path = require('path');
 const Calendario = require('./models/Calendario')
 const Evento = require('./models/Evento')
-const Login = require('./models/Login')
+const Login = require('./models/Login');
+const { exists } = require('fs');
 
 // inicializar o express
 const app = express();
@@ -37,6 +38,7 @@ app.get('/adm', (req, res) => {
 
 // Rota - Tela ADMIN (front-end: login)
 app.get('/add/:ano/:id', (req, res) => {
+
   res.render('addevento')
 })
 
@@ -72,7 +74,7 @@ app.get('/logins', (req, res) => {
   })
 })
 
-// Rota - deletar LOGINS (back-end: deleta cadastros do BD)
+// Função - deletar LOGINS (back-end: deleta cadastros do BD)
 app.get('/del/:id', (req, res) => {
   Login.destroy({ where: { 'id': req.params.id } }).then(() => {
     Login.findAll({
@@ -89,10 +91,27 @@ app.get('/del/:id', (req, res) => {
   })
 })
 
-// Rota - deletar CALENDÁRIOS (back-end: deleta cadastros do BD)
+// Função - deletar CALENDÁRIOS (back-end: deleta cadastros do BD)
 app.get('/delet/:ano/:id', (req, res) => {
   Calendario.destroy({ where: { 'id': req.params.id } }).then(() => {
     res.redirect('/cadastrados')
+  }).catch((erro) => {
+    res.send("Esta postagem não existe!")
+  })
+})
+
+// Função - deletar EVENTOS (back-end: deleta cadastros do BD)
+app.get('/delevento/:data', (req, res) => {
+  Evento.destroy({ where: { 'data': req.params.data } }).then(() => {
+    Evento.findAll({
+      order: [
+        ['data', 'ASC']
+      ]
+    }).then((eventos) => {
+      res.render('addevento', { eventos: eventos })
+    }).catch((erro) => {
+      res.send("Houve um erro: " + erro)
+    })
   }).catch((erro) => {
     res.send("Esta postagem não existe!")
   })
@@ -116,8 +135,8 @@ app.get('/cadastrar', (req, res) => {
   res.render('cadastrar')
 })
 
-// Rota - cadastra o CALENDARIO (back-end: cadastra os dados das inputs no BD e redireciona: CADASTRADOS (front-end)) 
-app.post('/cadastrando', (req, res) => {
+// Função - cadastra o CALENDARIO (back-end: cadastra os dados das inputs no BD e redireciona: CADASTRADOS (front-end)) 
+app.post('/cadastrandocalendario', (req, res) => {
   Calendario.create({
     ano: req.body.ano,
     semestre: req.body.semestre
@@ -129,12 +148,12 @@ app.post('/cadastrando', (req, res) => {
   })
 })
 
-// Rota - cadastra o EVENTO (back-end: cadastra os dados das inputs no BD e redireciona: CALENDAR2 (front-end)) 
+// Função - cadastra o EVENTO (back-end: cadastra os dados das inputs no BD e redireciona: addevento (front-end)) 
 app.post('/cadastrandoevento', (req, res) => {
-  Evento.create({
+  eventos[6,5] = Evento.create({
     data: req.body.data,
     descricao: req.body.descricao
-  }).then(() => {
+  }).then(() => {  
     //  (front-end: redirecionando para CADASTRADOS)
     res.redirect('addevento')
   }).catch((erro) => {
@@ -153,9 +172,12 @@ app.get('/calendar1', (req, res) => {
   res.render('calendar1')
 })
 
-// Rota - Tela CALENDÁRIO (front-end: visualiza calendário 2)
+// Função - Tela CALENDÁRIO (front-end: visualiza calendário)
 app.get('/addevento', (req, res) => {
-  Evento.findAll({
+  Evento.findAll({ 
+    order: [
+      ['data', 'ASC']
+    ] 
   }).then((eventos) => {
 
     let datas = []
@@ -168,25 +190,9 @@ app.get('/addevento', (req, res) => {
       }
 
       datas.push(data)
-      console.log(element.data)      
+      console.log(element.data)
     });
-
-    datas.push({
-      data: '2020-11-23',
-      descricao: ''
-    })
-
-    datas.push({
-      data: '2020-11-25',
-      descricao: ''
-    })
-
-    datas.push({
-      data: '2020-11-26',
-      descricao: ''
-    })
-
-    res.render('addevento', { semana1: datas, semana2: datas, semana3: datas, semana4: datas, semana5: datas })
+    res.render('addevento', { eventos: eventos })
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
   })
