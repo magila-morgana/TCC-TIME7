@@ -1,4 +1,3 @@
-{{body}}
 
 <h2 class="tituloP">Lista de CALENDÁRIOS: </h2>
 <br>
@@ -86,3 +85,90 @@
     </tbody>
   </table>
 </div>
+
+
+<!-- ADDEXENTOS SEMANAS -->
+<tr>
+  <td></td>
+  {{#each semana1}}
+  <td>{{descricao}}</td>
+  {{/each}}
+</tr>
+<tr>
+
+<tr>
+  <td></td>
+  {{#each semana2}}
+  <td>
+    {{descricao}}
+  </td>
+  {{/each}}
+</tr>
+
+<tr>
+  <td></td>
+  {{#each semana3}}
+  <td>
+    {{descricao}}
+  </td>
+  {{/each}}
+</tr>
+
+<tr>
+  <td></td>
+  {{#each semana4}}
+  <td>
+    {{descricao}}
+  </td>
+  {{/each}}
+</tr>
+
+<tr>
+  <td></td>
+  {{#each semana5}}
+  <td>
+    {{descricao}}
+  </td>
+
+
+
+  <!-- INDEX -->
+  app . get ( '/ calendar2' , ( req , res ) => {
+  Evento . findAll ( {
+  } ) . então ( ( eventos ) => {
+  res . render ( 'calendar2' , { eventos : eventos } )
+
+  let datas = [ ]
+
+  eventos . forEach ( elemento => {
+
+  let data = {
+  dados : elemento . dados ,
+  descricao : elemento . descrição
+  }
+
+  datas . push ( dados )
+  console . log ( elemento . dados )
+  } ) ;
+
+  datas . push ( {
+  dados : '2020-11-23' ,
+  descricao : ''
+  } )
+
+  datas . push ( {
+  dados : '2020-11-25' ,
+  descricao : ''
+  } )
+
+  datas . push ( {
+  dados : '2020-11-26' ,
+  descricao : ''
+  } )
+
+  res . render ( 'calendar2' , { semana1 : datas , semana2 : datas , semana3 : datas , semana4 : datas , semana5 : datas
+  } )
+  } ) . catch ( ( erro ) => {
+  res . send ( "Houve um erro:" + erro )
+  } )
+  } )

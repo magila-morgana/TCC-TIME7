@@ -5,10 +5,9 @@ const expressHandlebars = require('express-handlebars'),
   { alowInsecurePrototypeAccess, allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const bodyParser = require('body-parser')
 const path = require('path');
-const Calendario = require('./models/Calendario')
-const Evento = require('./models/Evento')
+const Calendario = require('./models/Calendario');
+const Evento = require('./models/Evento');
 const Login = require('./models/Login');
-const { exists } = require('fs');
 
 // inicializar o express
 const app = express();
@@ -52,7 +51,8 @@ app.get('/adm', (req, res) => {
 app.get('/cadastrados', (req, res) => {
   Calendario.findAll({
     order: [
-      ['id', 'ASC']
+      ['ano', 'ASC'],
+      ['semestre', 'ASC']
     ]
   }).then((calendarios) => {
     res.render('cadastrados', { calendarios: calendarios })
@@ -68,28 +68,8 @@ app.get('/cadastrar', (req, res) => {
 
 // ---------- ADDEVENTO ----------
 app.get('/addevento', (req, res) => {
-  Evento.findAll({ 
-    order: [
-      ['data', 'ASC']
-    ] 
-  }).then((eventos) => {
-    let datas = []
-    eventos.forEach(element => {
-      let data = {
-        data: element.data,
-        descricao: element.descricao
-      }
-      datas.push(data)
-      console.log(element.data)
-    });
-    res.render('addevento', { eventos: eventos })
-  }).catch((erro) => {
-    res.send("Houve um erro: " + erro)
-  })
+  res.render('addevento')
 })
-
-
-
 
 
 // **************************************** BACK-END CREATE TABLE ******************************************
@@ -128,12 +108,12 @@ app.post('/cadastrandocalendario', (req, res) => {
 
 // ---------- CREATE EVENTOS ----------
 app.post('/cadastrandoevento', (req, res) => {
-  Evento.create({ 
+  Evento.create({
     data: req.body.data,
     descricao: req.body.descricao
-  }).then(() => {  
+  }).then(() => {
     //  (front-end: redirecionando para CADASTRADOS)
-    res.redirect('addevento')
+    res.redirect('/add/:id/:ano')
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
   })
@@ -159,9 +139,11 @@ app.get('/logins', (req, res) => {
 // ---------- SELECT CALENDÁRIO-ID-ANO ----------
 app.get('/add/:id/:ano', (req, res) => {
   Evento.findAll({
+    where: { 
+      data: req.body },
     order: [
-      ['id', 'ASC']
-    ]
+      ['data', 'ASC']
+    ],
   }).then((eventos) => {
     res.render('addevento', { eventos: eventos })
   }).catch((erro) => {
@@ -169,7 +151,12 @@ app.get('/add/:id/:ano', (req, res) => {
   })
 })
 
-// ---------- SELECT EVENTO-ID-ANO ----------
+
+
+// ---------- SELECT EVENTO-ID-ANO ---------------------------------------------------------------------- AQUI
+
+
+
 
 
 
@@ -194,7 +181,7 @@ app.get('/del/:id', (req, res) => {
 })
 
 // ---------- DELETE CALENDÁRIOS ----------
-app.get('/delet/:ano/:id', (req, res) => {
+app.get('/delet/:id/:ano', (req, res) => {
   Calendario.destroy({ where: { 'id': req.params.id } }).then(() => {
     res.redirect('/cadastrados')
   }).catch((erro) => {
@@ -204,7 +191,7 @@ app.get('/delet/:ano/:id', (req, res) => {
 
 // ---------- DELETE EVENTOS ----------
 app.get('/delevento/:data', (req, res) => {
-  Evento.destroy({ where: { 'data': req.params.data } }).then(() => {
+  Evento.destroy({ where: { 'data': req.params.data = { data } } }).then(() => {
     res.redirect('/addevento')
   }).catch((erro) => {
     res.send("Esta postagem não existe!")

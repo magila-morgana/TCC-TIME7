@@ -1,5 +1,17 @@
 {{body}}
 
+<p id="week"></p>
+<script>
+  var n = "3";
+  var daysOfWeek = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+  document.getElementById("week").innerHTML = daysOfWeek[n];
+  if (n === "12") {
+    n = "0";
+  } else {
+    n = n++;
+  } 
+</script>
+
 <!-- Calendar 2 -->
 <div class="container">
   <br>
@@ -23,31 +35,44 @@
         <table class="table table-bordered card-header-calendar">
           <thead>
             <tr class="diaSemana">
-              <th scope="col">Segunda</th>
-              <th scope="col">Terça</th>
-              <th scope="col">Quarta</th>
-              <th scope="col">Quinta</th>
-              <th scope="col">Sexta</th>
-              <th scope="col">Sábado</th>
+              <th scope="col" width="16%">Segunda</th>
+              <th scope="col" width="17%">Terça</th>
+              <th scope="col" width="17%">Quarta</th>
+              <th scope="col" width="17%">Quinta</th>
+              <th scope="col" width="17%">Sexta</th>
+              <th scope="col" width="16%">Sábado</th>
             </tr>
           </thead>
           <tbody>
+
+            <!--
+            <script>
+              for (let i = 0; i < 6; i++) {
+
+                <tr><h3>Coluna</h3></tr>
+
+                for (let i = 1; i < 8; i++) {
+                  <td><h3>Linha</h3></td>
+
+                  console.log("Dia da semana: " + i)
+                }
+                console.log("\n")
+              }
+            </script>
+            -->
             <tr>
-              <td>
-                {{#each eventos}}
-                  {{data}}
-                  <br>
-                  {{descricao}}
-                  <br>
-                  <br>
-                {{/each}}
-              </td>
+              {{#each eventos}}
+              <td>{{data}}<br>{{descricao}}</td>
+              <!-- {{#each eventos}}
+              <td>Linha: {{data}}<br>{{descricao}}</td>
+              {{/each}} -->
+              <td>{{data}}<br>{{descricao}}</td>
             </tr>
+            <tr></tr>
+              {{/each}}
           </tbody>
         </table>
       </div> <!-- FIM do calendário do semestre -->
-      
-      
 
       <!-- Col 2 - Container EVENTO -->
       <div class="container btn-evento col-lg-3 col-md-6 col-sm-12">
@@ -69,8 +94,8 @@
 
             <!-- DESCRIÇÃO -->
             <textarea class="form-control mt-1" id="descricao" data-ls-module="charCounter" maxlength="100"
-              name="descricao" type="textarea" rows="5" cols="50" placeholder="Insira a descrição da atividade"
-              required="required" aria-describedby="descricaoHelpBlock"></textarea>
+              name="descricao" type="textarea" rows="5" cols="50" placeholder="Insira a descrição da atividade">
+            </textarea>
             <br>
 
             <!-- BUTTONS -->
@@ -84,8 +109,8 @@
               <div class="col-6">
 
                 <!-- BUTTON DELETE -->
-                <button class="btn-button-claro" type="reset"><img class="trash" src="/img/trash.png" alt="lixo"><img><a
-                    href="/delevento/{{data}}"></a></button>
+                <a href="/delevento/{{data}}"><button class="btn-button-claro" type="reset"><img class="trash"
+                      src="/img/trash.png" alt="lixo"><img></button></a>
               </div>
             </div>
           </div>

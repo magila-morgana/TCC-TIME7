@@ -6,7 +6,7 @@ const bd = require('./bd')
 const Evento = bd.sequelize.define('eventos',
   {
     id: { type: bd.Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-    data: { type: bd.Sequelize.DATEONLY, },
+    data: { type: bd.Sequelize.DATEONLY },
     descricao: { type: bd.Sequelize.TEXT }
   })
 
