@@ -68,8 +68,16 @@ app.get('/cadastrar', (req, res) => {
 
 // ---------- ADDEVENTO ----------
 app.get('/addevento', (req, res) => {
-  res.render('addevento')
+  Evento.findAll({
+    where: { 'data': req.body = '2020-12-25' }
+  }).then((eventos) => {
+    res.render('addevento', { eventos: eventos })
+  }).catch((erro) => {
+    res.send("Houve um erro:" + erro)
+  })
 })
+
+
 
 
 // **************************************** BACK-END CREATE TABLE ******************************************
@@ -113,13 +121,11 @@ app.post('/cadastrandoevento', (req, res) => {
     descricao: req.body.descricao
   }).then(() => {
     //  (front-end: redirecionando para CADASTRADOS)
-    res.redirect('/add/:id/:ano')
+    res.redirect('/teste')
   }).catch((erro) => {
     res.send("Houve um erro: " + erro)
   })
 })
-
-
 
 // **************************************** BACK-END SELECT TABLE ******************************************
 
@@ -139,11 +145,10 @@ app.get('/logins', (req, res) => {
 // ---------- SELECT CALENDÁRIO-ID-ANO ----------
 app.get('/add/:id/:ano', (req, res) => {
   Evento.findAll({
-    where: { 
-      data: req.body },
+    where: { 'data': req.body = '2020-12-25' },
     order: [
       ['data', 'ASC']
-    ],
+    ]
   }).then((eventos) => {
     res.render('addevento', { eventos: eventos })
   }).catch((erro) => {
@@ -153,16 +158,7 @@ app.get('/add/:id/:ano', (req, res) => {
 
 
 
-// ---------- SELECT EVENTO-ID-ANO ---------------------------------------------------------------------- AQUI
-
-
-
-
-
-
-
 // **************************************** BACK-END DELETE INSERT ******************************************
-
 // ---------- DELETE LOGINS ----------
 app.get('/del/:id', (req, res) => {
   Login.destroy({ where: { 'id': req.params.id } }).then(() => {
@@ -190,13 +186,57 @@ app.get('/delet/:id/:ano', (req, res) => {
 })
 
 // ---------- DELETE EVENTOS ----------
-app.get('/delevento/:data', (req, res) => {
-  Evento.destroy({ where: { 'data': req.params.data = { data } } }).then(() => {
-    res.redirect('/addevento')
+app.get('/delevento/:id', (req, res) => {
+  Evento.destroy({ where: { 'id': req.params.id } }).then(() => {
+    res.redirect('/teste')
   }).catch((erro) => {
     res.send("Esta postagem não existe!")
   })
 })
+
+
+
+
+
+
+//================================================================================================ TESTES 
+app.get('/teste', (req, res) => {
+  Evento.findAll({}).then((eventos) => {
+    res.render('teste', { eventos: eventos })
+  }).catch((erro) => {
+    res.send("Houve um erro:" + erro)
+  })
+})
+
+//================================================================================================ TESTES LUCAS 
+app.get('/testelucas', (req, res) => {
+  Evento.findAll({}).then((eventos) => {
+    res.render('testelucas', { eventos: eventos })
+  }).catch((erro) => {
+    res.send("Houve um erro:" + erro)
+  })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ******************************************************************
 // ouvir uma porta
@@ -212,6 +252,3 @@ app.listen(8080)
 // git add . 
 // git commit -m "Rotas cadastrando e cadastrados" 
 // git push origin main
-
-
-

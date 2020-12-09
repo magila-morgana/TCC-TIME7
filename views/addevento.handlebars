@@ -1,21 +1,10 @@
 {{body}}
 
-<p id="week"></p>
-<script>
-  var n = "3";
-  var daysOfWeek = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
-  document.getElementById("week").innerHTML = daysOfWeek[n];
-  if (n === "12") {
-    n = "0";
-  } else {
-    n = n++;
-  } 
-</script>
-
 <!-- Calendar 2 -->
 <div class="container">
   <br>
   <a href="/cadastrados"><button class="btn-button">VOLTAR</button></a>
+  <a href="/teste"><button class="btn-button">EVENTOS</button></a>
   <hr>
 
   <!-- Form -->
@@ -35,12 +24,12 @@
         <table class="table table-bordered card-header-calendar">
           <thead>
             <tr class="diaSemana">
-              <th scope="col" width="16%">Segunda</th>
+              <th scope="col" width="17%">Segunda</th>
               <th scope="col" width="17%">Terça</th>
               <th scope="col" width="17%">Quarta</th>
               <th scope="col" width="17%">Quinta</th>
               <th scope="col" width="17%">Sexta</th>
-              <th scope="col" width="16%">Sábado</th>
+              <th scope="col" width="15%">Sábado</th>
             </tr>
           </thead>
           <tbody>
@@ -60,29 +49,62 @@
               }
             </script>
             -->
+
             <tr>
-              {{#each eventos}}
-              <td>{{data}}<br>{{descricao}}</td>
-              <!-- {{#each eventos}}
-              <td>Linha: {{data}}<br>{{descricao}}</td>
-              {{/each}} -->
-              <td>{{data}}<br>{{descricao}}</td>
+              <td></td>
+              <td>01</td>
+              <td>02</td>
+              <td>03</td>
+              <td>04</td>
+              <td>05</td>
             </tr>
-            <tr></tr>
-              {{/each}}
+            <tr>
+              <td>07</td>
+              <td>08</td>
+              <td>09</td>
+              <td>10</td>
+              <td>11</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>15</td>
+              <td>16</td>
+              <td>17</td>
+              <td>18</td>
+              <td>19</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>22</td>
+              <td>23</td>
+              <td>24</td>
+              <td class="alert alert-danger">25<br>
+                {{#each eventos}}
+                <span>{{descricao}}</span>
+                {{/each}}
+              </td>
+              <td>26</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>29</td>
+              <td>30</td>
+              <td>31</td>
+              <td></td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
       </div> <!-- FIM do calendário do semestre -->
 
       <!-- Col 2 - Container EVENTO -->
       <div class="container btn-evento col-lg-3 col-md-6 col-sm-12">
-
-        <!-- Formulário EVENTO -->
         <form action="/cadastrandoevento" method="POST">
 
           <!-- Navbar -->
           <navbar class="shadow-lg rounded">
-            <div class="btn-evento-editar text-center">
+            <div class="btn-evento-editar">
               <h7>Adicionar evento</h7>
             </div>
           </navbar>
@@ -95,7 +117,7 @@
             <!-- DESCRIÇÃO -->
             <textarea class="form-control mt-1" id="descricao" data-ls-module="charCounter" maxlength="100"
               name="descricao" type="textarea" rows="5" cols="50" placeholder="Insira a descrição da atividade">
-            </textarea>
+              </textarea>
             <br>
 
             <!-- BUTTONS -->
@@ -103,18 +125,20 @@
               <div class="col-6">
 
                 <!-- BUTTON SUBMIT -->
-                <button class="btn-button-claro" type="submit"><img class="trash" src="/img/save.png"
-                    alt="salvar"><img></button>
+                <button class="btn-button-claro" type="submit">
+                  <img class="trash" src="/img/save.png" alt="salvar"><img>
+                </button>
               </div>
-              <div class="col-6">
 
+              <div class="col-6">
                 <!-- BUTTON DELETE -->
-                <a href="/delevento/{{data}}"><button class="btn-button-claro" type="reset"><img class="trash"
-                      src="/img/trash.png" alt="lixo"><img></button></a>
+                <button class="btn-button-claro" type="reset">
+                  {{#each eventos}}<a href="/delevento/{{id}}"><img class="trash" src="/img/trash.png" alt="lixo"><img></a>{{/each}}
+                </button>
               </div>
             </div>
           </div>
-        </form> <!-- Fim do Formulário -->
+        </form>
       </div> <!-- Fim do container EVENTO -->
     </div> <!-- FIM da linha -->
   </div> <!-- FIM do form -->

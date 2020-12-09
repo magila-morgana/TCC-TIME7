@@ -1,0 +1,81 @@
+{{body}}
+
+<div class="container">
+  <br>
+  <a href="/addevento"><button class="btn-button">VOLTAR</button></a>
+  <hr>
+
+  <!-- Form -->
+  <div class="card border mb-3 shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Form Header -->
+    <div class="card-header text-center">
+      <h7>Calendário do 1º semestre</h7>
+    </div>
+
+    <!-- Col 1 - Calendário do semestre -->
+    <div class="container text-center col-12">
+      <div class="container">
+        <div class="curso-title m-4">
+          <h2></h2>
+        </div>
+
+        <div class="card text-center">
+          <div class="card-header">
+            <ul class="nav nav-pills card-header-pills">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Julho</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Agosto</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Setembro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Outubro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Novembro</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Dezembro</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="row semana mt-4">
+            <tr class="text-center col-12">
+              <div class="col"><b>Segunda</b></div>
+              <div class="col"><b>Terça</b></div>
+              <div class="col"><b>Quarta</b></div>
+              <div class="col"><b>Quinta</b></div>
+              <div class="col"><b>Sexta</b></div>
+              <div class="col"><b>Sábado</b></div>
+            </tr>
+          </div>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-2 mt-1">
+                <div class="text-center mt-3">
+                </div>
+                <div class="text-center text-danger mt-2">
+                  <br><br>
+                </div>
+              </div>
+            
+              {{#each eventos}}
+              <div class="col-2 mt-1 card-body-dia border">
+                <div class="text-center mt-3">
+                  <h4>{{id}}</h4>
+                </div>
+                <div class="text-center text-danger mt-2">
+                  {{descricao}}
+                </div>
+              </div>
+              {{/each}}
+            </div>
+          </div> <!-- FIM do container -->
+          <br>
+        </div> <!-- FIM do calendário -->
