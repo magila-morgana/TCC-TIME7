@@ -2,7 +2,8 @@
 
 <div class="container">
   <br>
-  <a href="/addevento"><button class="btn-button">VOLTAR</button></a>
+  <a href="/adc/:id/:ano"><button class="btn-button">1º SEMESTRE</button></a>
+  <a href="/add/:id/:ano"><button class="btn-button-ir">2º SEMESTRE</button></a>
   <hr>
 
   <!-- Form -->
@@ -10,7 +11,7 @@
 
     <!-- Form Header -->
     <div class="card-header text-center">
-      <h7>Calendário do 1º semestre</h7>
+      <h7>Eventos do mês</h7>
     </div>
 
     <!-- Col 1 - Calendário do semestre -->
@@ -64,14 +65,20 @@
                   <br><br>
                 </div>
               </div>
-            
+
               {{#each eventos}}
-              <div class="col-2 mt-1 card-body-dia border">
-                <div class="text-center mt-3">
-                  <h4>{{id}}</h4>
-                </div>
-                <div class="text-center text-danger mt-2">
-                  {{descricao}}
+              <div class="col-2 mt-2 card-body-dia border">
+                
+                <!-- DELETE -->
+                <a href="/delevento/{{id}}">
+                  <img class="trash" src="/img/trash.png" alt="lixo"><img>
+                </a>
+
+                <div class="mt-0">
+                  <h4 class="text-center">{{id}}</h4>
+                  <div class="text-center text-danger mt-2">
+                    {{descricao}}
+                  </div>
                 </div>
               </div>
               {{/each}}

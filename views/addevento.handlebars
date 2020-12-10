@@ -3,8 +3,8 @@
 <!-- Calendar 2 -->
 <div class="container">
   <br>
-  <a href="/cadastrados"><button class="btn-button">VOLTAR</button></a>
-  <a href="/teste"><button class="btn-button">EVENTOS</button></a>
+  <a href="/adc/:id/:ano"><button class="btn-button">1º semestre</button></a>
+  <a href="/teste"><button class="btn-button-ir">EVENTOS</button></a>
   <hr>
 
   <!-- Form -->
@@ -23,7 +23,7 @@
       <div class="container text-center col-lg-8 col-md-12 col-sm-12">
         <table class="table table-bordered card-header-calendar">
           <thead>
-            <tr class="diaSemana">
+            <tr class="diaSemana text-danger">
               <th scope="col" width="17%">Segunda</th>
               <th scope="col" width="17%">Terça</th>
               <th scope="col" width="17%">Quarta</th>
@@ -104,7 +104,7 @@
 
           <!-- Navbar -->
           <navbar class="shadow-lg rounded">
-            <div class="btn-evento-editar">
+            <div class="btn-evento-editar text-center">
               <h7>Adicionar evento</h7>
             </div>
           </navbar>
@@ -122,18 +122,11 @@
 
             <!-- BUTTONS -->
             <div class="row">
-              <div class="col-6">
+              <div class="col-12">
 
                 <!-- BUTTON SUBMIT -->
                 <button class="btn-button-claro" type="submit">
-                  <img class="trash" src="/img/save.png" alt="salvar"><img>
-                </button>
-              </div>
-
-              <div class="col-6">
-                <!-- BUTTON DELETE -->
-                <button class="btn-button-claro" type="reset">
-                  {{#each eventos}}<a href="/delevento/{{id}}"><img class="trash" src="/img/trash.png" alt="lixo"><img></a>{{/each}}
+                  <img src="/img/save.png" alt="salvar"><img>
                 </button>
               </div>
             </div>

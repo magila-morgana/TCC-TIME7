@@ -10,6 +10,16 @@
     color: white;
 }
 
+.btn-button-ir {
+    background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(85, 150, 200));
+    color: white;
+}
+
+.btn-button-ir:hover {
+    background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255));
+    color: black;
+}
+
 .btn-button-claro {
     background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255));
     color: black;
@@ -101,8 +111,20 @@ div.form-group {
 /* Logins */
 
 .trash {
+    max-height: 10px;
+    max-width: auto;
+    margin-right: 120px;
+}
+
+.trash-login {
     max-height: 25px;
     max-width: auto;
+}
+
+.trash-login:hover {
+    max-height: 25px;
+    max-width: auto;
+    background: rgb(00, 00, 50);
 }
 
 .btn-button-trash {
@@ -110,7 +132,7 @@ div.form-group {
     color: white;
 }
 
-.btn-button-.trash {
+.btn-button-trash:hover {
     background: rgb(00, 00, 100);
     color: white;
 }
@@ -152,7 +174,8 @@ div.form-group {
     margin-bottom: auto;
 }
 
-.card-header-estrutura, .card-header-calendar {
+.card-header-estrutura,
+.card-header-calendar {
     color: white;
     background: linear-gradient(to bottom, #000030, #20668a);
     font-size: 12px;
@@ -211,7 +234,10 @@ a.menu:hover {
 
 
 /**************************************** CSS TESTE.handlebars ****************************************/
+
+
 /* Título Estrutura Calendário e Logins*/
+
 .semana {
     padding: 10px;
     font-family: Cochin;
@@ -232,6 +258,6 @@ a.menu:hover {
 }
 
 ul.nav {
-  margin-left: 75px;
-  margin-right: auto;
+    margin-left: 75px;
+    margin-right: auto;
 }

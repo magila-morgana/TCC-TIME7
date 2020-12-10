@@ -8,6 +8,7 @@ const path = require('path');
 const Calendario = require('./models/Calendario');
 const Evento = require('./models/Evento');
 const Login = require('./models/Login');
+const Adcevento = require('./models/Adcevento');
 
 // inicializar o express
 const app = express();
@@ -77,7 +78,10 @@ app.get('/addevento', (req, res) => {
   })
 })
 
-
+// ---------- ADCEVENTO ----------
+app.get('/adcevento', (req, res) => {
+  res.render('adcevento')
+})
 
 
 // **************************************** BACK-END CREATE TABLE ******************************************
@@ -127,6 +131,19 @@ app.post('/cadastrandoevento', (req, res) => {
   })
 })
 
+// ---------- CREATE ADCEVENTOS ----------
+app.post('/cadastrandoadcevento', (req, res) => {
+  Adcevento.create({
+    data: req.body.data,
+    descricao: req.body.descricao
+  }).then(() => {
+    //  (front-end: redirecionando para adcevento)
+    res.redirect('/adc/:id/:ano')
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
+})
+
 // **************************************** BACK-END SELECT TABLE ******************************************
 
 // ---------- SELECT LOGINS-ID ----------
@@ -156,7 +173,54 @@ app.get('/add/:id/:ano', (req, res) => {
   })
 })
 
+// ---------- SELECT CALENDÁRIO-ID-ANO ----------
+app.get('/adc/:id/:ano', (req, res) => {
+  Adcevento.findAll().then((adceventos) => {
 
+    // ----- Vetor com os dias do mês
+    let diasDoMes = [];
+
+    // ----- For que permitirá adicionar todas as datas vazias ao mês correspondente
+    for (let index = 1; index <= 31; index++) {
+      diasDoMes.push(
+        {
+          id: null,
+          data: `2020-12-${String(index).padStart(2, '0')}`,
+          descricao: '',
+          createdAt: '',
+          updatedAt: ''
+        }
+      )
+    }
+
+    // ----- Percorre o resultado da consulta do banco de dados
+    adceventos.forEach(element => {
+
+      // ----- Faz uma busca em cada dia/evento cadastrado no vetor diasDoMes para substituir a data vazia pela data com evento cadastrado 
+      // no banco de dados
+      const diaIndex = diasDoMes.findIndex(eve => eve.data === element.dataValues.data)
+
+      // ----- Alteração da descrição vazia pela descrição preenchida do banco de dados
+      if (diaIndex > -1) {
+        diasDoMes[diaIndex] = element.dataValues
+      }
+    });
+
+    // ----- Dividindo os dias do Mês em 5 semanas
+    const semana1 = diasDoMes.slice(0, 7)
+    const semana2 = diasDoMes.slice(7, 14)
+    const semana3 = diasDoMes.slice(14, 21)
+    const semana4 = diasDoMes.slice(21, 28)
+    const semana5 = diasDoMes.slice(28, 31)
+
+    // Adicionando as semanas ao mês
+    const mes = [semana1, semana2, semana3, semana4, semana5]
+
+    res.render('adcevento', { adceventos: mes })
+  }).catch((erro) => {
+    res.send("Houve um erro: " + erro)
+  })
+})
 
 // **************************************** BACK-END DELETE INSERT ******************************************
 // ---------- DELETE LOGINS ----------

@@ -1,0 +1,87 @@
+<!-- Calendar 2 -->
+<div class="container">
+  <br>
+  <a href="/cadastrados"><button class="btn-button">CALENDÁRIOS</button></a>
+  <a href="/add/:id/:ano"><button class="btn-button-ir">2º semestre</button></a>
+  <hr>
+
+  <!-- Form -->
+  <div class="card border mb-3 shadow-lg p-3 mb-5 bg-white rounded">
+
+    <!-- Form Header -->
+    <div class="card-header text-center">
+      <h7>Calendário 1º semestre</h7>
+    </div>
+    <br>
+
+    <!-- Linha -->
+    <div class="container row">
+
+      <!-- Col 1 - Calendário do semestre -->
+      <div class="container text-center col-lg-8 col-md-12 col-sm-12">
+        <table class="table table-bordered card-header-calendar">
+          <thead>
+            <tr class="diaSemana">
+              <th scope="col" width="14%">Domingo</th>
+              <th scope="col" width="14.5%">Segunda</th>
+              <th scope="col" width="14.5%">Terça</th>
+              <th scope="col" width="14%">Quarta</th>
+              <th scope="col" width="14.5%">Quinta</th>
+              <th scope="col" width="14.5%">Sexta</th>
+              <th scope="col" width="14%">Sábado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Criando uma linha para cada semana -->
+            {{#each adceventos}}
+            <tr>
+              <!-- Criando uma coluna para cada dia -->
+              {{#each this}}
+              <td>
+                <h7 class="text-danger"><b>{{data}}</b></h7><br>{{descricao}}
+              </td>
+              {{/each}}
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div> <!-- FIM do calendário do semestre -->
+
+      <!-- Col 2 - Container EVENTO -->
+      <div class="container btn-evento col-lg-3 col-md-6 col-sm-12">
+        <form action="/cadastrandoadcevento" method="POST">
+
+          <!-- Navbar -->
+          <navbar class="shadow-lg rounded">
+            <div class="btn-evento-editar text-center">
+              <h7>Adicionar evento</h7>
+            </div>
+          </navbar>
+
+          <!-- DATA -->
+          <div class="card-body text-white m-3">
+            <input class="text-center" type="date" id="data" name="data" required="required"
+              aria-describedby="dataHelpBlock">
+
+            <!-- DESCRIÇÃO -->
+            <textarea class="form-control mt-1" id="descricao" data-ls-module="charCounter" maxlength="100"
+              name="descricao" type="textarea" rows="5" cols="50" placeholder="Insira a descrição da atividade">
+              </textarea>
+            <br>
+
+            <!-- BUTTONS -->
+            <div class="row">
+              <div class="col-12">
+
+                <!-- BUTTON SUBMIT -->
+                <button class="btn-button-claro" type="submit">
+                  <img src="/img/save.png" alt="salvar"><img>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div> <!-- Fim do container EVENTO -->
+    </div> <!-- FIM da linha -->
+  </div> <!-- FIM do form -->
+</div> <!-- FIM do calendário -->
