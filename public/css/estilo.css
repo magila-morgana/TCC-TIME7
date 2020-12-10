@@ -214,7 +214,7 @@ a.menu:hover {
     margin-right: auto;
     padding: 5px;
     max-width: 150px;
-    max-height: 500px;
+    max-height: 400px;
     background: linear-gradient(to bottom, rgb(50, 50, 150), rgb(120, 255, 255));
     border-radius: 20px;
 }
