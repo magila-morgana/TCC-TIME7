@@ -10,31 +10,31 @@
   </div>
 
   <!-- Estrutura do LOGIN -->
-  <div class="container text-center col-lg-6 col-md-8 col-sm-12">
-    <table class="table table-bordered card-header-logins">
-      <thead>
+  <div class="container-fixed">
+    <div class="text-center">
+      <table class="table table-bordered card-header-logins">
+
         <tr class="diaSemana">
           <th scope="col">RM</th>
           <th scope="col">Senha</th>
           <th scope="col">DELETAR</th>
         </tr>
-      </thead>
-      <tbody>
-        {{#each logins}}
-        <tr>
-          <td>
-            <h6 class="text-center">{{RM}}</h6>
-          </td>
-          <td>
-            <h6 class="text-center">{{senha}}</h6>
-          </td>
-          <td><a href="/del/{{id}}"><img class="trash-login text-center" src="/img/trash.png"
-                  alt="lixo"><img></a>
-          </td>
-          <br><br>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
+
+        <tbody>
+          {{#each logins}}
+          <tr>
+            <td>
+              <h6 class="text-center">{{RM}}</h6>
+            </td>
+            <td>
+              <h6 class="text-center">{{senha}}</h6>
+            </td>
+            <td><a href="/del/{{id}}"><img class="trash-login text-center" src="/img/trash.png" alt="lixo"><img></a>
+            </td>            
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>  
   </div>
 </div>

@@ -1,5 +1,10 @@
 /* GLOBAL */
 
+div.container-fixed {
+    margin-right: 500px;
+    margin-left: 500px;
+}
+
 .btn-button {
     background: linear-gradient(to bottom, #000050, #307090);
     color: white;
