@@ -308,11 +308,12 @@ app.listen(8080)
 
 // **************************** Configurando o GitHub
 
-// git config --global user.name "magila-morgana"
-// git config --global user.email "magilamorganasf@gmail.com"
+// git config --global user.name "magila-ferreira"
+// git config --global user.email "magilamorganasf@hotmail.com"
 
 // **************************** Salvar no GitHub
 
 // git add . 
-// git commit -m "Rotas cadastrando e cadastrados" 
+// git commit -m "TCC" 
 // git push origin main
+
